@@ -67,13 +67,13 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  load(int id) {
+  load(int id) async {
     BaseApi().getAllUsers(id).then((ans) {
       if (ans is String) {
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: const Text("Error"),
+            title: const Text("Error connecting to server"),
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(context).pop(),
